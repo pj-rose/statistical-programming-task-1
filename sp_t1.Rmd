@@ -12,26 +12,42 @@ a <- a[-((n-2886):n)] ## strip license
 a <- a[-grep("[0123456789]:[0123456789]",a)] ## strip out verse numbers
 ```
 
-## 4
+## 4 
 
 
 
-```{r cars}
-split_punct=function(x)
+```{r q4}
+split_punct=function(punct_mark,l)
 {
-  positions=grep(',|\\.|;|:|!|\\?',x)
-  y=gsub(',|\\.|;|:|!|\\?','',x)
-  w=rep('',length(positions)+length(x))
-  for (i in 1:length(positions)){
-  z[i]=substr(x[positions[i]],nchar(x[positions[i]]),nchar(x[positions[i]]))}
-  
+position=grep(punct_mark,l) #find the index that contains punctuations marks; return index
+x=rep("",length(l)+length(position))  #create a empty x, put strings in it
+
+iis<-position+1:length(position) #indice to put the marks
+x[iis]<-substr(l[position],nchar(l[position]),nchar(l[position])) 
+y=gsub(punct_mark," ",l) #delete all the marks
+x[-iis]<-y
+
+
+return(x)
 }
 ```
 
 ## 5
 
 ```{r }
-
+pm=',|\\.|;|:|!|\\?'
+a_m=split_punct(pm,a)
 ```
 
+##6
+```{r }
+  
+```
 
+##7
+
+##8
+
+##9
+
+##10
