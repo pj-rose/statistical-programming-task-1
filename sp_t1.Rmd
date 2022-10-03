@@ -1,0 +1,37 @@
+---
+title: "sp1"
+author: "Peijie Zeng"
+date: "2022/10/2"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+a <- scan("pg10.txt",what="character",skip=104) ## skip contents
+n <- length(a)
+a <- a[-((n-2886):n)] ## strip license
+a <- a[-grep("[0123456789]:[0123456789]",a)] ## strip out verse numbers
+```
+
+## 4
+
+
+
+```{r cars}
+split_punct=function(x)
+{
+  positions=grep(',|\\.|;|:|!|\\?',x)
+  y=gsub(',|\\.|;|:|!|\\?','',x)
+  w=rep('',length(positions)+length(x))
+  for (i in 1:length(positions)){
+  z[i]=substr(x[positions[i]],nchar(x[positions[i]]),nchar(x[positions[i]]))}
+  
+}
+```
+
+## 5
+
+```{r }
+
+```
+
+
