@@ -1,12 +1,7 @@
----
-title: "sp1"
-author: "Peijie Zeng"
-date: "2022/10/2"
-output: pdf_document
----
+
 
 ```{r setup, include=FALSE}
-a <- scan("pg10.txt",what="character",skip=104) ## skip contents
+a <- scan("bible.txt",what="character",skip=104) ## skip contents
 n <- length(a)
 a <- a[-((n-2886):n)] ## strip license
 a <- a[-grep("[0123456789]:[0123456789]",a)] ## strip out verse numbers
@@ -36,12 +31,21 @@ return(x)
 
 ```{r }
 pm=',|\\.|;|:|!|\\?'
-a_m=split_punct(pm,a)
+a_m=split_punct(pm,a) #a_m is the new list with character and marks individually
 ```
 
 ##6
 ```{r }
+#a
+  uni<-unique(a_m) #
+  low_uni<-tolower(uni)#turn the capital to lower
+
+
+#b
   
+  
+   
+
 ```
 
 ##7
