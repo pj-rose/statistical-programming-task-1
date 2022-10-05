@@ -36,16 +36,19 @@ a_m=split_punct(pm,a) #a_m is the new list with character and marks individually
 
 ##6
 ```{r }
-#a
-  uni<-unique(a_m) #
-  low_uni<-tolower(uni)#turn the capital to lower
-
-
-#b
-  indices<-match(low_uni,tolower(a)) #match
- 
-#c
-  tabulate(,a)
+#remove punctuations from txt
+a_c=gsub(pm,'',a)
+#(a)
+lowered_a=tolower(a_c)
+unique_word=unique(lowered_a)
+#(2)
+u_index=match(lowered_a,unique_word)#(3)
+#(4)
+u_n=tabulate(u_index)
+#(d)
+threshold=u_n[rank(u_n,ties.method = 'random')==length(u_n)-500]
+#(e)
+b=unique_word[u_n>160]
    
 
 ```
