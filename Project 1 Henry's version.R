@@ -18,19 +18,42 @@ split_punct=function(punct_mark,l)
   return(x)
   
 }
-
 pm=',|\\.|;|:|!|\\?'
-a_m=split_punct(pm,a)
 
-u <-unique(tolower(a_m), incomparables = FALSE)
-g <-match(tolower(a_m), u, nomatch = NA_integer_, incomparables = NULL)
-t <-tabulate(g)
+a_m=split_punct(pm, a)
+a_c=gsub(pm,'',a)
+#6
+#(a)
+lowered_a=tolower(a_c)
+unique_word=unique(lowered_a)
+#(b)
+u_index=match(lowered_a,unique_word)
+#(c)
+u_n=tabulate(u_index)
+#(d)
+threshold=u_n[rank(u_n,ties.method = 'random')==length(u_n)-500]
+#(e)
+b=unique_word[u_n>160]
 
-vec <- unlist(t)
-n <- 3
-partial <- length(v) - N + 1
-Nth <- sort(vec, partial = partial)[partial]
-indexes <- which(vec >= Nth)
-vec[indexes]
+#7a
+q7a <- match(lowered_a, b)
+
+#7b
+c1 <-match(unique_word, b)
+c2 <- head(c1 + 1, -1)
+c3 <- head(c2 + 1, -1)
+
+matrix <- cbind(c1,c2,c3)
+matrix
+#7c
+sum_of_rows<-rowSums (matrix, na.rm = FALSE, dims = 1)
+removed_som <- sum_of_rows[!is.na(sum_of_rows)]
+#7d 
+T array
+
+
+
+
+
 
 
