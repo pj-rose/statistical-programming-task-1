@@ -42,13 +42,33 @@ a_m=split_punct(pm,a) #a_m is the new list with character and marks individually
 
 
 #b
-  
-  
+  indices<-match(low_uni,tolower(a)) #match
+ 
+#c
+  tabulate(,a)
    
 
 ```
 
-##7
+##7  b is the most commonly words 500.
+```{r}
+#a
+  match(b,a_m)
+
+
+
+#b
+ matrix() #three column matrix empty
+ 
+ t1<-row()  #index of common words
+ t2<-       #t1+1
+ 
+ t3<-
+ cbind()
+```
+
+
+
 
 ##8
 
