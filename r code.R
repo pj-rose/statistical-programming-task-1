@@ -50,7 +50,7 @@ b=unique_word[u_n>160]
 ```
 
 ##7  b is the most commonly words 500.
-```{r}
+
 #7a
 q7a <- match(lowered_a, b)
 
@@ -58,6 +58,7 @@ q7a <- match(lowered_a, b)
 c1 <-match(unique_word, b) #unique有13072个，b仅499个。找在b中的下标。 unique不含标点
 #c2<-head(c1+1,-1)
 c2 <- c1[-1] #c1减掉第一位
+
 
 c3 <- c2[-1]
 
