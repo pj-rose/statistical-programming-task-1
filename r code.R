@@ -2,8 +2,8 @@
 ###    Henry Blackwell, Peijie Zeng, Jing Pan
 ###
 
-setwd("D:/°®¶¡±¤/À´À²ÎÒµÎ±¦¶ù/Õý¿ÎÄÚÈÝ/programming/week2/µÚÒ»´ÎÐ¡×éºÏ×÷/statistical-programming-task-1")
-a <- scan("bible.txt",what="character",skip=104) ## skip contents Ö±½Óµ½1:1ºóÃæ
+setwd("D:/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ÒµÎ±ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/programming/week2/ï¿½ï¿½Ò»ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½/statistical-programming-task-1")
+a <- scan("bible.txt",what="character",skip=104) ## skip contents Ö±ï¿½Óµï¿½1:1ï¿½ï¿½ï¿½ï¿½
 n <- length(a)
 a <- a[-((n-2886):n)] ## strip license
 a <- a[-grep("[0123456789]:[0123456789]",a)] ## strip out verse numbers
@@ -15,8 +15,62 @@ split_punct=function()
  iis<-position+1:length(position) #indice to put the marks
  x[iis]<-substr(a[position],-1,-2) 
  gsub(pattern="\\W"," ",a) #delete all the marks
-  
+ return(x)
  
 }
   
+#5
+
+```{r }
+pm=',|\\.|;|:|!|\\?'
+a_m=split_punct(pm,a) #a_m is the new list with character and marks individually
+```
+
+##6
+```{r }
+#remove punctuations from txt
+a_c=gsub(pm,'',a) #a_c : a cancel all the pronounciation marks
+
+#(a)
+lowered_a=tolower(a_c)
+unique_word=unique(lowered_a)
+
+#(b)
+u_index=match(lowered_a,unique_word) # unique words of the lower letter a
+
+#(c)
+u_n=tabulate(u_index) #
+
+#(d)
+threshold=u_n[rank(u_n,ties.method = 'random')==length(u_n)-500]
+
+#(e)
+b=unique_word[u_n>160]
+
+```
+
+##7  b is the most commonly words 500.
+```{r}
+#7a
+q7a <- match(lowered_a, b)
+
+#7b
+c1 <-match(unique_word, b) #uniqueæœ‰13072ä¸ªï¼Œbä»…499ä¸ªã€‚æ‰¾åœ¨bä¸­çš„ä¸‹æ ‡ã€‚ uniqueä¸å«æ ‡ç‚¹
+#c2<-head(c1+1,-1)
+c2 <- c1[-1] #c1å‡æŽ‰ç¬¬ä¸€ä½
+
+c3 <- c2[-1]
+
+matrix <- cbind(c1,c2,c3)
+matrix
+#7c
+sum_of_rows<-rowSums (matrix, na.rm = FALSE, dims = 1)
+removed_som <- sum_of_rows[!is.na(sum_of_rows)]
+#7d 
+T array
+```
+
+#6
+
+
 
