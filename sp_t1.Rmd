@@ -126,5 +126,19 @@ random_bible=paste(sample_S=sample(b,50,prob=S),collapse=' ')
 ```
 
 ##10
-```
+```{r}
+library('Hmisc')
+lower_count=tabulate(match(a_c,b))
+count=tabulate(match(lowered_a,b))
+
+for (i in 1:length(b))
+{
+  if (any(a_c==b[i])==FALSE)
+     cat(i,' ')
+}
+lower_count[497:499]=0
+capital_count=count-lower_count
+b_m=b
+b_m[which(capital_count/count>=0.5)]=capitalize(b[which(capital_count/count>=0.5)])
+paste(Bible_simulation(T,A,S,b_m,50),collapse=' ')
 ```
