@@ -96,20 +96,20 @@ Bible_simulation=function(T,A,S,b,n)
   {
   simu_index=rep(0,n)
   size=length(b)
-  simu_index[1:2]=sample(length(b),2,prob=S)
+  simu_index[1:2]=sample(size,2,prob=S)
   for (i in 3:n)
     {
       if (sum(T[simu_index[i-2],simu_index[i-1],]!=0))
       {
-          simu_index[i]=sample(length(b),1,prob=T[simu_index[i-2],simu_index[i-1],])
+          simu_index[i]=sample(size,1,prob=T[simu_index[i-2],simu_index[i-1],])
       }
       else if(sum(A[simu_index[i-1],1])!=0)
       {
-          simu_index[i]=sample(length(b),1,prob=A[i-1,])
+          simu_index[i]=sample(size,1,prob=A[i-1,])
       }
       else
       {
-          simu_index[i]=sample(length(b),1,prob=S)
+          simu_index[i]=sample(size,1,prob=S)
       }
   } 
   simu_txt=b[simu_index]
