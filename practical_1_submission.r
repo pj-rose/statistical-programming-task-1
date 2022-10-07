@@ -115,8 +115,8 @@ S=u_tab[u_tab>threshold]
 
 ## We define a function Bible_simulation where n is the length of the simulated text we want to generate.
 ## simu_index creates a vector of zeros with length n.
-## We take a random sample of size 2 from the vector S 
-## 
+## We take the first word following the prob stated by S 
+## Then generate the second word from A if there is another word follows the first word we selected, if there isn't such word we generate it from S again.  
 ## What the Loop does:
 ## By looping over t we check whether this initial pair has a corresponding triplet if so then we randomly sample from T to get the 
 ## next word.
@@ -129,14 +129,18 @@ Bible_simulation=function(T,A,S,b,n)
 {
   simu_index=rep(0,n)
   size=length(b)
-  simu_index[1:2]=sample(size,2,prob=S)
+  simu_index[1]=sample(size,1,prob=S)
+  if (sum(A[simu_index[1],])!=0)
+    simu_index[2]=sample(size,1,prob=A[1,])
+  else
+    simu_index[2]=sample(size,1,prob=S)
   for (i in 3:n)
   {
     if (sum(T[simu_index[i-2],simu_index[i-1],]!=0))
     {
       simu_index[i]=sample(size,1,prob=T[simu_index[i-2],simu_index[i-1],])
     }
-    else if(sum(A[simu_index[i-1],1])!=0)
+    else if(sum(A[simu_index[i-1],])!=0)
     {
       simu_index[i]=sample(size,1,prob=A[i-1,])
     }
