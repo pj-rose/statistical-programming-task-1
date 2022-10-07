@@ -9,12 +9,12 @@
 
 
 
-setwd("/Users/henryblackwell/Library/Mobile Documents/com~apple~CloudDocs/University /Edinburgh /Statistical Programming/Group 35/statistical-programming-task-1")
+setwd("put/your/local/repo/location/here"
 a <- scan("bible.txt",what="character",skip=104) ## skip contents
 n <- length(a)
 a <- a[-((n-2886):n)] ## strip license
 a <- a[-grep("[0123456789]:[0123456789]",a)] ## strip out verse numbers
-a=iconv(a,'WINDOWS-1252','UTF-8')
+a=iconv(a,'WINDOWS-1252','UTF-8') ## covert text to UTF-8 to avoid error
 
 
 #### 4 
