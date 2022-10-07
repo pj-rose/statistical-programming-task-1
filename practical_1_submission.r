@@ -19,9 +19,6 @@ a=iconv(a,'WINDOWS-1252','UTF-8') ## covert text to UTF-8 to avoid error
 
 #### 4 
 
-
-
-
 ## We define function which takes arguments two agruments:
 ##  1 - 'punct_mark' -- which is a list of punctuation marks 
 ##  2 - 'l' -- which is the text which we want to strip of punctuation marks
@@ -47,7 +44,6 @@ pm=',|\\.|;|:|!|\\?' ## A 'list' of punctuation marks that we are looking to sep
 a_m=split_punct(pm,a) ## a_m is the new vector with words and punctuation marks in separate entries.
 
 
-
 ####6
 
 ##a_c=gsub(pm,'',a) ## remove punctuation from the text (a).
@@ -62,8 +58,6 @@ u_tab=tabulate(u_index) ## Tabulates the frequency of each unique word.
 threshold=u_tab[rank(u_tab,ties.method = 'random')==length(u_tab)-500] ## Finds the minimum number of occurrences (e.g. the threshold) that makes the size of b approximately 500.
 ##(e)
 b=unique_word[u_tab>threshold] ## Defines a vector,b, of approximately the 500 most common words, by only taking words which occur more than 160 times. 
-
-
 
 
 ####7 
@@ -106,11 +100,6 @@ S=u_tab[u_tab>threshold]
 
 
 
-
-
-
-
-
 ####8
 
 ## We define a function Bible_simulation where n is the length of the simulated text we want to generate.
@@ -148,7 +137,7 @@ Bible_simulation=function(T,A,S,b,n)
     {
       simu_index[i]=sample(size,1,prob=S)
     }
-  } 
+   } 
   simu_txt=b[simu_index]
   return(simu_txt)
 }
