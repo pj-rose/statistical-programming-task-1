@@ -28,8 +28,8 @@ position=grep(punct_mark,l)
 x=rep("",length(l)+length(position))  
 iis<-position+1:length(position) ## Indices to put the marks.
 x[iis]<-substr(l[position],nchar(l[position]),nchar(l[position])) 
-y=gsub(punct_mark,"",l) 
-
+y=gsub(punct_mark,"",l)  
+x[-iis]<-y
 return(x)
 }
 ```
