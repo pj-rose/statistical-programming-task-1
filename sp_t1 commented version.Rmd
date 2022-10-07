@@ -119,12 +119,12 @@ c3=c2[-1] ## Creates column three by indexing from the third position in the low
 ## we keep on doing this until we have generated all 50 words. 
 ## Then we use simu_txt to return the result so we can print it later on.
 Bible_simulation=function(T,A,S,b,n)
-  {
+{
   simu_index=rep(0,n)
   size=length(b)
   simu_index[1:2]=sample(size,2,prob=S)
   for (i in 3:n)
-    {
+      {
       if (sum(T[simu_index[i-2],simu_index[i-1],]!=0))
       {
           simu_index[i]=sample(size,1,prob=T[simu_index[i-2],simu_index[i-1],])
@@ -137,7 +137,7 @@ Bible_simulation=function(T,A,S,b,n)
       {
           simu_index[i]=sample(size,1,prob=S)
       }
-  } 
+ } 
   simu_txt=b[simu_index]
   return(simu_txt)
 }
